@@ -26,4 +26,8 @@ requested outputs:
 * A file containing the averages on the data of SummarizedData.txt, by activity and subject
 
 ## Codebook
+<<<<<<< HEAD
 The Codebook is stored in Codebook.md
+=======
+The Codebook is stored in Codebook.md
+>>>>>>> 5bf2d09460c914de0aa64fcca5da19f7aed72716
