@@ -87,10 +87,87 @@ keep only the columns containing "mean()" or "std()" as these ones seem to refer
 We have replaced the activity labels by their description in order to conform to "Uses descriptive activity names to name the activities in the data set"
 The 561 feature names are somehow cryptic, but wehave not sufficient information to make them more descriptive. Some
 domain knowledge/information would be necessary, but is not included in the original codebook.
-Nevertheless, in order to conform to the requirement to "Appropriately label the data set with descriptive variable names", we have    
-used the name "activity", "subjects" and "sample".
+Nevertheless, in order to conform to the requirement to "Appropriately label the data set with descriptive variable names", we have used the name "activity", "subjects" and "sample".
 
 We have taken the "narrow" form of the data. See the discussion in the article by David Hood, mentioned in the forum.
+
+Description of the processed file:
+==================================
+
+Column titles
+
+Categorical: 3 variables
+"sample"                     
+"activity"                   
+"subjects"
+Observations: 66 variables
+The observations are the averages of the values of the corresponding features in the original files, calculated by activity and by subject.                     
+"tBodyAcc-mean()-X"          
+"tBodyAcc-mean()-Y"          
+"tBodyAcc-mean()-Z"          
+"tBodyAcc-std()-X"           
+"tBodyAcc-std()-Y"           
+"tBodyAcc-std()-Z"           
+"tGravityAcc-mean()-X"       
+"tGravityAcc-mean()-Y"       
+"tGravityAcc-mean()-Z"       
+"tGravityAcc-std()-X"        
+"tGravityAcc-std()-Y"        
+"tGravityAcc-std()-Z"        
+"tBodyAccJerk-mean()-X"      
+"tBodyAccJerk-mean()-Y"      
+"tBodyAccJerk-mean()-Z"      
+"tBodyAccJerk-std()-X"       
+"tBodyAccJerk-std()-Y"       
+"tBodyAccJerk-std()-Z"       
+"tBodyGyro-mean()-X"         
+"tBodyGyro-mean()-Y"         
+"tBodyGyro-mean()-Z"         
+"tBodyGyro-std()-X"          
+"tBodyGyro-std()-Y"          
+"tBodyGyro-std()-Z"          
+"tBodyGyroJerk-mean()-X"     
+"tBodyGyroJerk-mean()-Y"     
+"tBodyGyroJerk-mean()-Z"     
+"tBodyGyroJerk-std()-X"      
+"tBodyGyroJerk-std()-Y"      
+"tBodyGyroJerk-std()-Z"      
+"tBodyAccMag-mean()"         
+"tBodyAccMag-std()"          
+"tGravityAccMag-mean()"      
+"tGravityAccMag-std()"       
+"tBodyAccJerkMag-mean()"     
+"tBodyAccJerkMag-std()"      
+"tBodyGyroMag-mean()"        
+"tBodyGyroMag-std()"         
+"tBodyGyroJerkMag-mean()"    
+"tBodyGyroJerkMag-std()"     
+"fBodyAcc-mean()-X"          
+"fBodyAcc-mean()-Y"          
+"fBodyAcc-mean()-Z"          
+"fBodyAcc-std()-X"           
+"fBodyAcc-std()-Y"           
+"fBodyAcc-std()-Z"           
+"fBodyAccJerk-mean()-X"      
+"fBodyAccJerk-mean()-Y"      
+"fBodyAccJerk-mean()-Z"      
+"fBodyAccJerk-std()-X"       
+"fBodyAccJerk-std()-Y"       
+"fBodyAccJerk-std()-Z"       
+"fBodyGyro-mean()-X"         
+"fBodyGyro-mean()-Y"         
+"fBodyGyro-mean()-Z"         
+"fBodyGyro-std()-X"          
+"fBodyGyro-std()-Y"          
+"fBodyGyro-std()-Z"          
+"fBodyAccMag-mean()"         
+"fBodyAccMag-std()"          
+"fBodyBodyAccJerkMag-mean()" 
+"fBodyBodyAccJerkMag-std()"  
+"fBodyBodyGyroMag-mean()"    
+"fBodyBodyGyroMag-std()"     
+"fBodyBodyGyroJerkMag-mean()"
+"fBodyBodyGyroJerkMag-std()"
 
 
 
