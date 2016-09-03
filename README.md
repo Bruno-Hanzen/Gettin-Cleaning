@@ -4,10 +4,11 @@ Assignment 4 of the Coursera "Getting &amp; Cleaning Data" course
 ## Code
 the R code is stored in run_analysis.R. It contains a function (dataset)
 that gathers the data from the 
-1.Test Labels (later renamed as activity)
-2.Subjects
-3.Test Set: measurements calculated from the raw data (561 features)
-4.Inertial Data: 128 raw data for each record
+
+*.Test Labels (later renamed as activity)
+*.Subjects
+*.Test Set: measurements calculated from the raw data (561 features)
+*.Inertial Data: 128 raw data for each record
 ..Body acceleration (along the 3 axis)
 ..Body angular speed (along the 3 axis)
 ..Total acceleration (along the 3 axis)
