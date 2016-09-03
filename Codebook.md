@@ -72,6 +72,28 @@ This dataset is distributed AS-IS and no responsibility implied or explicit can 
 
 Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
 
+Description of the processing
+=============================
+
+All significant files have the same number of lines. We can safely infer that each line corresponds to a observation and merge the files "by line". 
+Technically, that means we can use a "cbind" to create the merged file. In order to keep the test/train information, we add a column, that we populate
+according to the sample being processed.
+
+The resulting file has one line per observation.
+
+The assignment requires to "Extracts only the measurements on the mean and standard deviation for each measurement".
+This is slightly ambiguous, as it seems that the "Mean" has different meanings in the column names. We have chosen to 
+keep only the columns containing "mean()" or "std()" as these ones seem to refer to "mean and standard deviation of measurements"
+We have replaced the activity labels by their description in order to conform to "Uses descriptive activity names to name the activities in the data set"
+The 561 feature names are somehow cryptic, but wehave not sufficient information to make them more descriptive. Some
+domain knowledge/information would be necessary, but is not included in the original codebook.
+Nevertheless, in order to conform to the requirement to "Appropriately label the data set with descriptive variable names", we have    
+used the name "activity", "subjects" and "sample".
+
+We have taken the "narrow" form of the data. See the discussion in the article by David Hood, mentioned in the forum.
+
+
+
 Features list from the original file:
 =====================================
 

@@ -30,8 +30,8 @@ data_root<- "Z:/Professionnel/Cours/R Code/Assignment 4"
 
 setwd(data_root)
 ## Read the data from the web and unzip them
-download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", "data.zip")
-unzip("data.zip")
+#download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", "data.zip")
+#unzip("data.zip")
 data_root<-paste(data_root, "/UCI HAR Dataset", sep="")
 setwd(data_root)
 # Get the features names
@@ -126,7 +126,7 @@ setwd(data_root)
 
 # Write the merged data to a .csv file (MergedData.csv)
 
-write.csv(data, file = "MergedData.csv", row.names = FALSE)
+#write.csv(data, file = "MergedData.csv", row.names = FALSE)
 
 ## Extracts only the measurements on the mean and standard deviation for each measurement.
 # We select the oolumns contianing mean() or std() in the names
@@ -138,7 +138,18 @@ write.csv(SummarizedData, file = "SummarizedData.csv", row.names = FALSE)
 ## From the data set in step 4, creates a second, independent tidy 
 ## data set with the average of each variable for each activity and each subject.
 
-AverageddData <-SummarizedData %>% select(-sample) %>% group_by(activity, subjects) %>% summarize_all(funs(mean(.)))
+# Create a subject/sample table
 
-write.csv(AverageddData, file = "AveragedData.csv", row.names = FALSE)
+SubjectSample <- unique(data[c("subjects", "sample")])
+
+# Order by subject
+
+SubjectSample<-SubjectSample[order(SubjectSample[,1]),]
+
+AveragedData <-SummarizedData %>% select(-sample) %>% group_by(activity, subjects) %>% summarize_all(funs(mean(.)))
+# Add a "sample" column
+AveragedData <-cbind(sample= " ", as.data.frame(AveragedData))
+AveragedData$sample<-SubjectSample$sample[AveragedData$subjects]
+
+write.csv(AveragedData, file = "AveragedData.csv", row.names = FALSE)
 
