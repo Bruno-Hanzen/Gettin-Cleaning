@@ -9,9 +9,9 @@ that gathers the data from the
 2. Subjects
 2. Test Set: measurements calculated from the raw data (561 features)
 4. Inertial Data: 128 raw data for each record
-.. Body acceleration (along the 3 axis)
-.. Body angular speed (along the 3 axis)
-.. Total acceleration (along the 3 axis)
+1.. Body acceleration (along the 3 axis)
+2.. Body angular speed (along the 3 axis)
+3.. Total acceleration (along the 3 axis)
 
 It also adds a column to identify the sample
 
