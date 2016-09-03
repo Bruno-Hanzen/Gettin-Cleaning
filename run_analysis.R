@@ -151,5 +151,5 @@ AveragedData <-SummarizedData %>% select(-sample) %>% group_by(activity, subject
 AveragedData <-cbind(sample= " ", as.data.frame(AveragedData))
 AveragedData$sample<-SubjectSample$sample[AveragedData$subjects]
 
-write.csv(AveragedData, file = "AveragedData.csv", row.names = FALSE)
+write.table(AveragedData, file = "AveragedData.csv", row.names = FALSE)
 
