@@ -30,8 +30,8 @@ data_root<- "Z:/Professionnel/Cours/R Code/Assignment 4"
 
 setwd(data_root)
 ## Read the data from the web and unzip them
-#download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", "data.zip")
-#unzip("data.zip")
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", "data.zip")
+unzip("data.zip")
 data_root<-paste(data_root, "/UCI HAR Dataset", sep="")
 setwd(data_root)
 # Get the features names
@@ -41,8 +41,11 @@ features<-read.table("features.txt")[,2]
 activities<-read.table("activity_labels.txt")[,2]
 
 
-# This function reads the data for a sample (train or test) and gathers them
-# in a single frame. It also adds a column indentifying the sample to the frame.
+# This function reads the data for a sample set (train or test) and gathers them
+# in a single frame. It also adds a column identifying the sample to the frame.
+# data are available as text files (.txt), fixed length, some of them 
+# "Unix style" (lines terminated by "LF") and wome other ones "Windows style"
+# (lines terminated by "CR" "LF")
 dataset <- function(sample, datapath){
 
     #set the working directory
@@ -56,13 +59,13 @@ dataset <- function(sample, datapath){
     # Get the test labels
     # Read the file
     labels<-read.table(paste("y_", sample, ".txt", sep = ""))
-    # Assign a significant name to the variable
+	## Appropriately labels the data set with descriptive variable names.
     names(labels)[1]<-"activity"
     
     # Get the subjects
     # Read the file
     subjects<-read.table(paste("subject_", sample, ".txt", sep = ""))
-    # Assign a significant name to the variable
+    ## Appropriately labels the data set with descriptive variable names.
     names(subjects)[1]<-"subjects"
     
     # Get the test set
@@ -113,7 +116,7 @@ train_data <- dataset("train", data_root)
 
 data <- rbind(test_data, train_data)
 
-# Get the activity names instead of codes
+## Uses descriptive activity names to name the activities in the data set
 
 data$activity<-activities[data$activity]
 
@@ -125,25 +128,17 @@ setwd(data_root)
 
 write.csv(data, file = "MergedData.csv", row.names = FALSE)
 
-#we prepare the file restricted to mean and std of each measurement
+## Extracts only the measurements on the mean and standard deviation for each measurement.
+# We select the oolumns contianing mean() or std() in the names
 
 SummarizedData<- data[c(match("subjects", names(data)), match("activity", names(data)), match("sample", names(data)), grep ("mean\\()|std\\()" , names(data)))]
 
 write.csv(SummarizedData, file = "SummarizedData.csv", row.names = FALSE)
 
-# calculate the averages of the observations of SummarizedData, for each user 
-# and each activity, and write the results to a file
+## From the data set in step 4, creates a second, independent tidy 
+## data set with the average of each variable for each activity and each subject.
 
-AverageddData <-SummarizedData %>% select(-sample) %>% group_by(subjects, activity) %>% summarize_all(funs(mean(.)))
+AverageddData <-SummarizedData %>% select(-sample) %>% group_by(activity, subjects) %>% summarize_all(funs(mean(.)))
 
 write.csv(AverageddData, file = "AveragedData.csv", row.names = FALSE)
 
-# data are available as text files (.txt), fixed length, some of them 
-# "Unix style" (lines terminated by "LF") and wome other ones "Windows style"
-# (lines terminated by "CR" "LF")
-
-## Extracts only the measurements on the mean and standard deviation for each measurement.
-## Uses descriptive activity names to name the activities in the data set
-## Appropriately labels the data set with descriptive variable names.
-## From the data set in step 4, creates a second, independent tidy 
-## data set with the average of each variable for each activity and each subject.
