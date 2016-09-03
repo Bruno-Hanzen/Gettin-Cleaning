@@ -1,3 +1,6 @@
+Description of the original files:
+==================================
+
 ==================================================================
 Human Activity Recognition Using Smartphones Dataset
 Version 1.0
@@ -69,7 +72,8 @@ This dataset is distributed AS-IS and no responsibility implied or explicit can 
 
 Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
 
-Features list from the original file
+Features list from the original file:
+=====================================
 
 - tBodyAcc-mean()-X
 - tBodyAcc-mean()-Y
@@ -632,6 +636,3 @@ Features list from the original file
 - angle(X,gravityMean)
 - angle(Y,gravityMean)
 - angle(Z,gravityMean)
-- 
-- 
-- 
